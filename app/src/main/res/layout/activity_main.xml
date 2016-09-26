@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="yiihs.nfcgame.MainActivity">
+
+    <Button
+        android:text="Write Mode"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:id="@+id/writebt"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="writebt_ok" />
+
+    <Button
+        android:text="Read Mode"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/readadminbt"
+        android:layout_below="@+id/writebt"
+        android:layout_alignStart="@+id/writebt"
+        android:layout_marginTop="20dp"
+        android:onClick="readadminbt_ok" />
+
+    <Button
+        android:text="RANK CHECK"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/rankbt"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/readadminbt"
+        android:layout_alignStart="@+id/readadminbt"
+        android:onClick="rankbt_ok" />
+
+    <Button
+        android:text="READ USER BUTTON"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rankbt"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:id="@+id/readuserbt"
+        android:onClick="readuserbt_ok"/>
+
+    <Button
+        android:text="SET DEFAULT SETTING"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/readuserbt"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:id="@+id/defaultbt"
+        android:onClick="defaultbt_ok"/>
+
+    <TextView
+        android:text="textDeviceNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/defaultbt"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:id="@+id/textDeviceNumber" />
+    <TextView
+        android:text="textIsSearched"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textDeviceNumber"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:id="@+id/textIsSearched" />
+</RelativeLayout>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin" >
+
+    <EditText
+        android:id="@+id/tag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="문자를 입력하고 태그를 터치하세요!" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:text="1st"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnWrite1st"
+            android:layout_weight="1"
+            android:onClick="btnWrite1st" />
+
+        <Button
+            android:text="2nd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnWrite2nd"
+            android:layout_weight="1"
+            android:onClick="btnWrite2nd" />
+
+        <Button
+            android:text="3nd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnWrite3rd"
+            android:layout_weight="1"
+            android:onClick="btnWrite3rd" />
+
+        <Button
+            android:text="4th"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnWrite4th"
+            android:layout_weight="1"
+            android:onClick="btnWrite4th" />
+    </LinearLayout>
+
+    <TextView
+        android:text="NFC State"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textNFCState" />
+
+</LinearLayout>
