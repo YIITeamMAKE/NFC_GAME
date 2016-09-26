@@ -3,14 +3,15 @@ package yiihs.nfcgame;
 import android.app.Activity;
 import android.widget.Toast;
 
-public class BackPressCloseHandler {
+//TODO: Change class name like OnBackPressListener or OnBackPressHandler
+public class OnBackPressHandler {
 
     private long backKeyPressedTime = 0;
     private Toast toast;
 
     private Activity activity;
 
-    public BackPressCloseHandler(Activity context) {
+    public OnBackPressHandler(Activity context) {
         this.activity = context;
     }
 
