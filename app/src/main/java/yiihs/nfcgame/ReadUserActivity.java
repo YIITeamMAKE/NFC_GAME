@@ -10,12 +10,20 @@ import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import yiihs.nfcgame.info.PhoneInformation;
+import yiihs.nfcgame.nfc.NfcTagAgent;
+import yiihs.nfcgame.nfc.NfcTagChecker;
 
 public class ReadUserActivity extends AppCompatActivity {
 
     private NfcAdapter nfcAdapter;
     private PendingIntent pendingIntent;
-    TextView tv;
+
+    private PhoneInformation mInformation;
+
+    private TextView tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +35,7 @@ public class ReadUserActivity extends AppCompatActivity {
         nfcAdapter = NfcAdapter.getDefaultAdapter(this);
         Intent intent = new Intent(this, getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
         pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
+        mInformation = new PhoneInformation(getApplicationContext());
     }
 
     @Override
@@ -60,8 +69,8 @@ public class ReadUserActivity extends AppCompatActivity {
             NdefRecord[] rec = msgs.getRecords();
 
             byte[] bt = rec[0].getPayload();
-            String text = new String(bt);
-            tv.setText(text);
+            String nfcText = new String(bt);
+            tv.setText(nfcText);
 
             short tnf = rec[0].getTnf();
             String type = new String(rec[0].getType());
@@ -69,8 +78,29 @@ public class ReadUserActivity extends AppCompatActivity {
 
             //Toast.makeText(this, tnf + ":" + type + ":" + id + ":" + text, Toast.LENGTH_LONG).show();
             //Toast.makeText(this, rec[0].toString(), Toast.LENGTH_LONG).show();
-            Log.i("NFC테스트", tnf + ":" + type + ":" + id + ":" + text);
+            Log.i("NFC테스트", tnf + ":" + type + ":" + id + ":" + nfcText);
             Log.i("NFC테스트", rec[0].toString());
+
+            NfcTagChecker tagChecker = new NfcTagChecker();
+            tagChecker.execute(nfcText);
+            if(tagChecker.get("code").equals("200")){
+                NfcTagAgent tagAgent = new NfcTagAgent();
+                tagAgent.execute(nfcText,mInformation.getPhoneNumber());
+                if(tagAgent.get("code").equals("201")){
+                    Toast.makeText(this, "Tag Success", Toast.LENGTH_SHORT).show();
+                    mInformation.setStatus(true);
+                } else if(tagAgent.get("code").equals("409")){
+                    Toast.makeText(this,"This device already tagged other nfc",Toast.LENGTH_SHORT).show();
+                    mInformation.setStatus(true);
+                } else {
+                    Toast.makeText(this,"Tag Failed. Try later",Toast.LENGTH_SHORT).show();
+                }
+            } else if(tagChecker.get("code").equals("409")){
+                Toast.makeText(this,"This Tag already used",Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Unknown Error", Toast.LENGTH_SHORT).show();
+            }
+
         }
     }
 
