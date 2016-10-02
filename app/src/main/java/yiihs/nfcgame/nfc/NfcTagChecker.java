@@ -13,15 +13,15 @@ import yiihs.nfcgame.tools.JSONFetchBroker;
  * Created by whdgm on 9/27/2016.
  */
 
-public class NfcTagCheker {
+public class NfcTagChecker {
 
     private JSONObject mResult;
 
     private String message;
     private String code;
 
-    public NfcTagCheker(){
-}
+    public NfcTagChecker(){
+    }
 
     public void execute(String tagIdValue){
         try {
