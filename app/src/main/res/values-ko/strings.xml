@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">NFC Game</string>
+    <string name="err_tagged">이미 태그한 기기입니다.</string>
+    <string name="err_taken">다른 사용자가 이미 사용한 태그입니다.</string>
+    <string name="err_tag_failed">태그에 실패했습니다. 잠시후 다시 시도해주세요.</string>
+    <string name="tag_success">태그 등록 성공!</string>
+    <string name="err_unknown">알수없는 오류가 발생했습니다.</string>
+    <string name="reset_success">상태 초기화 성공!</string>
+    <string name="tag_read_text">NFC태그를 터치해 주세요.</string>
+    <string name="main_read_btn">NFC 둥록</string>
+    <string name="main_rank_btn">태그 순위</string>
+    <string name="main_reset_btn">기기 상태 초기화</string>
+    <string name="rank_title">태그 상태(남은 태그 수)</string>
+    <string name="exit_toast">뒤로가기를 한번 더 누르면 종료합니다.</string>
+    <string name="main_help">도움말</string>
+</resources>

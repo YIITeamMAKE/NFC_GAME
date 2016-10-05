@@ -1,3 +1,16 @@
 <resources>
-    <string name="app_name">nfcgame</string>
+    <string name="app_name">NFC Game</string>
+    <string name="err_tagged">This device already Tagged</string>
+    <string name="err_taken">This Tag already Tagged by other user</string>
+    <string name="err_tag_failed">Tag failed! Try later</string>
+    <string name="tag_success">Tag Success</string>
+    <string name="err_unknown">Unkown Error!</string>
+    <string name="reset_success">Reset Status Success</string>
+    <string name="tag_read_text">Touch Your NFC Tag</string>
+    <string name="main_read_btn">Tag NFC</string>
+    <string name="main_rank_btn">Tag Ranking</string>
+    <string name="main_reset_btn">Reset Status</string>
+    <string name="rank_title">Tag Status(Remaining)</string>
+    <string name="exit_toast">Press Back to Exit Application</string>
+    <string name="main_help">Help</string>
 </resources>

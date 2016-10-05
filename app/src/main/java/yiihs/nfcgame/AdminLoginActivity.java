@@ -13,7 +13,7 @@ import com.gun0912.tedpermission.TedPermission;
 
 import java.util.ArrayList;
 
-public class LoginActivity extends AppCompatActivity {
+public class AdminLoginActivity extends AppCompatActivity {
 
     //TODO: change object name
     EditText editText3; // 변수 선언
@@ -24,8 +24,8 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         //TODO: change resource name
-        editText3 = (EditText) findViewById(R.id.editTextPass); // ID로 값 찾기
-        //verifyPermissions(LoginActivity.this);
+        editText3 = (EditText) findViewById(R.id.password_input); // ID로 값 찾기
+        //verifyPermissions(AdminLoginActivity.this);
 
 
         //부팅시 Permission 권한 설정 라이브러리
@@ -33,12 +33,12 @@ public class LoginActivity extends AppCompatActivity {
         PermissionListener permissionlistener = new PermissionListener() {
             @Override
             public void onPermissionGranted() {
-                //Toast.makeText(LoginActivity.this, "Permission Granted", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(AdminLoginActivity.this, "Permission Granted", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onPermissionDenied(ArrayList<String> deniedPermissions) {
-                //Toast.makeText(LoginActivity.this, "Permission Denied\n" + deniedPermissions.toString(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(AdminLoginActivity.this, "Permission Denied\n" + deniedPermissions.toString(), Toast.LENGTH_SHORT).show();
                 finish();
             }
         };

@@ -1,79 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main2"
+    android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="yiihs.nfcgame.MainActivity">
+    android:orientation="vertical"
+    tools:context="yiihs.nfcgame.MainActivity"
+    android:weightSum="1">
+
+    <Button
+        android:text="@string/main_read_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/user_read"
+        android:backgroundTint="#546e7a"
+        android:visibility="gone" />
+
+    <Button
+        android:text="@string/main_rank_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/user_rank"
+        android:backgroundTint="#546e7a"
+        android:visibility="gone" />
 
     <Button
         android:text="Write Mode"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:id="@+id/writebt"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="writebt_ok" />
+        android:id="@+id/admin_write"
+        android:visibility="gone" />
 
     <Button
         android:text="Read Mode"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:id="@+id/readadminbt"
-        android:layout_below="@+id/writebt"
-        android:layout_alignStart="@+id/writebt"
+        android:id="@+id/admin_read"
         android:layout_marginTop="20dp"
-        android:onClick="readadminbt_ok" />
-
-    <Button
-        android:text="RANK CHECK"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/rankbt"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/readadminbt"
-        android:layout_alignStart="@+id/readadminbt"
-        android:onClick="rankbt_ok" />
-
-    <Button
-        android:text="READ USER BUTTON"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/rankbt"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:id="@+id/readuserbt"
-        android:onClick="readuserbt_ok"/>
-
-    <Button
-        android:text="SET DEFAULT SETTING"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/readuserbt"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:id="@+id/defaultbt"
-        android:onClick="defaultbt_ok"/>
+        android:visibility="gone" />
 
     <TextView
         android:text="textDeviceNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/defaultbt"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:id="@+id/textDeviceNumber" />
+        android:id="@+id/device_number_text"
+        android:visibility="gone" />
     <TextView
         android:text="textIsSearched"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textDeviceNumber"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:id="@+id/textIsSearched" />
-</RelativeLayout>
+        android:id="@+id/device_status_text"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:padding="32dp">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <android.support.design.widget.FloatingActionButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                app:srcCompat="@drawable/ic_nfc_main"
+                android:id="@+id/fab_tag"
+                android:layout_weight="1" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1.3" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:clickable="true"
+                app:srcCompat="@drawable/ic_rank_main"
+                android:id="@+id/fab_rank"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+        <Button
+            android:text="@string/main_help"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_help" />
+
+    </LinearLayout>
+
+</LinearLayout>

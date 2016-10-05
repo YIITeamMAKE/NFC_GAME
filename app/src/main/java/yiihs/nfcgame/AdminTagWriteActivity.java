@@ -14,7 +14,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class WriteActivity extends AppCompatActivity {
+public class AdminTagWriteActivity extends AppCompatActivity {
 
     private NfcAdapter nfcAdapter;
     private PendingIntent pendingIntent;
@@ -93,10 +93,7 @@ public class WriteActivity extends AppCompatActivity {
     public void onResume() {
         super.onResume();
         if (nfcAdapter != null) {
-            Toast.makeText(this, "NFC어댑터 사용이 가능합니다!", Toast.LENGTH_LONG).show();
             nfcAdapter.enableForegroundDispatch(this, pendingIntent, null, null);
-        } else {
-            Toast.makeText(this, "NFC어댑터 사용이 불가합니다!", Toast.LENGTH_LONG).show();
         }
     }
 

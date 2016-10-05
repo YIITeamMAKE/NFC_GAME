@@ -28,8 +28,7 @@ public class OnBackPressHandler {
     }
 
     public void showGuide() {
-        toast = Toast.makeText(activity,
-                "\'뒤로\'버튼을 한번 더 누르시면 종료됩니다.", Toast.LENGTH_SHORT);
+        toast = Toast.makeText(activity, this.activity.getResources().getString(R.string.exit_toast), Toast.LENGTH_SHORT);
         toast.show();
     }
 }

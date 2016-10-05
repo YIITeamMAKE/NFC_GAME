@@ -13,18 +13,23 @@ import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class ReadAdminActivity extends AppCompatActivity {
+import yiihs.nfcgame.info.PhoneInformation;
+
+public class AdminTagReadActivity extends AppCompatActivity {
+
+    private PhoneInformation mPhoneInformation;
 
     private NfcAdapter nfcAdapter;
     private PendingIntent pendingIntent;
-    TextView tag;
+    private TextView tagInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_read_admin);
 
-        tag = (TextView)findViewById(R.id.tag);
+        mPhoneInformation = new PhoneInformation(getApplicationContext());
+        tagInfo = (TextView)findViewById(R.id.tag_info_text);
 
         nfcAdapter = NfcAdapter.getDefaultAdapter(this);
         Intent intent = new Intent(this, getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
@@ -53,7 +58,6 @@ public class ReadAdminActivity extends AppCompatActivity {
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        Toast.makeText(this, "onIntent()", Toast.LENGTH_SHORT).show();
 
         Parcelable[] rawMsgs = intent.getParcelableArrayExtra(NfcAdapter.EXTRA_NDEF_MESSAGES);
 
@@ -63,20 +67,9 @@ public class ReadAdminActivity extends AppCompatActivity {
 
             byte[] bt = rec[0].getPayload();
             String text = new String(bt);
-            tag.setText(text);
+            tagInfo.setText(text);
 
-            short tnf = rec[0].getTnf();
-            String type = new String(rec[0].getType());
-            String id = new String(rec[0].getId());
-
-            SharedPreferences userInfo = getSharedPreferences("userInfo", MODE_PRIVATE);
-            SharedPreferences.Editor userInfoEdit = userInfo.edit();
-            userInfoEdit.putBoolean("isSearched", true);
-            userInfoEdit.commit();
-            //Toast.makeText(this, tnf + ":" + type + ":" + id + ":" + text, Toast.LENGTH_LONG).show();
-            //Toast.makeText(this, rec[0].toString(), Toast.LENGTH_LONG).show();
-            Log.i("NFC테스트", tnf + ":" + type + ":" + id + ":" + text);
-            Log.i("NFC테스트", rec[0].toString());
+            mPhoneInformation.setStatus(true);
         }
     }
 
