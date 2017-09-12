@@ -3,14 +3,15 @@ package yiihs.nfcgame;
 import android.app.Activity;
 import android.widget.Toast;
 
-public class BackPressCloseHandler {
+//TODO: Change class name like OnBackPressListener or OnBackPressHandler
+public class OnBackPressHandler {
 
     private long backKeyPressedTime = 0;
     private Toast toast;
 
     private Activity activity;
 
-    public BackPressCloseHandler(Activity context) {
+    public OnBackPressHandler(Activity context) {
         this.activity = context;
     }
 
@@ -27,8 +28,7 @@ public class BackPressCloseHandler {
     }
 
     public void showGuide() {
-        toast = Toast.makeText(activity,
-                "\'뒤로\'버튼을 한번 더 누르시면 종료됩니다.", Toast.LENGTH_SHORT);
+        toast = Toast.makeText(activity, this.activity.getResources().getString(R.string.exit_toast), Toast.LENGTH_SHORT);
         toast.show();
     }
 }
